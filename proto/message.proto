@@ -1,0 +1,126 @@
+syntax = "proto3";
+
+message ProtoTransactionInput {
+    bytes TXID = 1;
+    uint64 vout = 2;
+    bytes sig = 3;
+}
+
+message ProtoTransactionOutput {
+    uint64 amount = 1;
+    bytes public_key = 2;
+}
+
+message ProtoTransaction {
+    repeated ProtoTransactionInput inputs = 1;
+    repeated ProtoTransactionOutput outputs = 2;
+}
+
+message ProtoComputation {
+    string expression = 1;
+    bytes public_key = 2;
+    repeated bytes ciphertexts = 3;
+    int64 timestamp = 4;
+    bytes evalmult_key = 5;
+    bytes output = 6;
+    bytes proof = 7;
+}
+
+message ProtoBlockHeader {
+    bytes prev_block_hash = 1;
+    bytes merkle_root = 2;
+    int64 timestamp = 3;
+    uint32 difficulty = 4;
+    repeated ProtoComputation computations = 5;
+}
+
+message ProtoBlock {
+    ProtoBlockHeader header = 1;
+    repeated ProtoTransaction transactions = 2;
+}
+
+/*
+===================
+===================
+MESSAGES
+===================
+===================
+*/
+
+message HelloMsg {
+  string greet = 1;
+  int32 id = 2;
+}
+
+message GetAddr {
+  string listening_address = 1;
+  int32 listening_port = 2;
+}
+
+message Addr {
+  repeated AddrPair addrPairs = 1;
+}
+
+message AddrPair {
+  string address = 1;
+  int32 port = 2;
+}
+
+message Invalid
+{
+}
+
+message InvBlock {
+  bytes block_hash = 1;
+}
+
+message GetBlock {
+  bytes block_hash = 1;
+}
+
+message InfoBlock {
+  ProtoBlock block = 1;
+  bool out_of_range = 2;
+}
+
+message InvTransaction {
+  bytes txid = 1;
+}
+
+message GetTransaction {
+  bytes txid = 1;
+}
+
+message InfoTransaction {
+  ProtoTransaction tx = 1;
+}
+
+message InvComputation {
+  bytes comp_hash = 1;
+}
+
+message GetComputation {
+  bytes comp_hash = 1;
+}
+
+message InfoComputation {
+  ProtoComputation comp = 1;
+}
+
+message SyncBlock {
+  int32 height = 1;
+}
+
+message SyncTransactions {
+}
+
+message ListTransactions {
+  repeated bytes txids = 1;
+}
+
+message SyncComputations {
+}
+
+message ListComputations {
+  repeated bytes comp_hashes = 1;
+}

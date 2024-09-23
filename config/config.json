@@ -1,0 +1,36 @@
+{
+    "net": {
+        "address": "127.0.0.1",
+        "port": 10725,
+        "bootstrap": [
+            [
+                "127.0.0.1",
+                5000
+            ],
+            [
+                "127.0.0.1",
+                5001
+            ],
+            [
+                "127.0.0.1",
+                5002
+            ]
+        ],
+        "outbound_peers_limit": 8,
+        "inbound_peers_limit": 128,
+        "rpc_address": "127.0.0.1",
+        "rpc_port": 11725
+    },
+    "chain": {
+        "genesis": {
+            "public_key": "wTlaymsFncu540SImlnlpSdHUL0uxsGUkcjxzdMbEEI=",
+            "timestamp": 1724190364,
+            "reward": 5000000000,
+            "difficulty": 1,
+            "hash": "LpujDBm73+UXBkd8ORCllWAWoZG9b9MFOEgBFrpM+T0="
+        },
+        "blocks_per_epoch": 2016,
+        "seconds_per_block": 600,
+        "default_tx_per_block" : 40
+    }
+}
