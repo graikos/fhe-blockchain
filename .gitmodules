@@ -1,7 +1,7 @@
-[submodule "libsetup/depends/libiop"]
+[submodule "depends/libiop"]
 	path = depends/libiop
 	url = https://github.com/graikos/libiop
 	branch = ffupdate
-[submodule "libsetup/depends/zkOpenFHE"]
+[submodule "depends/zkOpenFHE"]
 	path = depends/zkOpenFHE
 	url = https://github.com/graikos/zkOpenFHE
